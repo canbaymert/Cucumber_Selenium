@@ -12,80 +12,74 @@ import utilities.Driver;
 public class AmazonStepDefinitions {
     AmazonPage amazonPage=new AmazonPage();
 
-    @Given("user goes to Amazon home page")
-    public void userGoesAmazon() {
+    @Given("user goes to amazon home page")
+    public void user_goes_to_amazon_home_page() {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
     }
-    @Then("user makes a search for 'Laptop' keyword")
-    public void userSearchesLaptop() {
-        amazonPage.searchBox.sendKeys("Laptop" + Keys.ENTER);
+    @Then("user makes a search for laptop keyword")
+    public void user_makes_a_search_for_laptop_keyword() {
+        amazonPage.searchBox.sendKeys("laptop" + Keys.ENTER);
     }
-    @Then("user asserts that the result includes the 'Laptop' keyword")
-    public void userAssertsResultIncludesLaptop() {
-        String keyword="Laptop";
+    @Then("user asserts that the result includes the laptop keyword")
+    public void user_asserts_that_the_result_includes_the_lava_keyword() {
+        String keyword="laptop";
         String actualResultText= amazonPage.searchResultElement.getText();
         Assert.assertTrue(actualResultText.contains(keyword));
     }
     @Then("user closes the page")
-    public void userClosesPage() {
+    public void user_closes_the_page() {
         Driver.closeDriver();
     }
-    @Then("user makes a search for 'Java' keyword")
-    public void userSearchesJava() {
-        amazonPage.searchBox.sendKeys("Java" + Keys.ENTER);
+    @Then("user makes a search for java keyword")
+    public void user_makes_a_search_for_java_keyword() {
+        amazonPage.searchBox.sendKeys("java" + Keys.ENTER);
     }
 
-    @Then("user asserts that the result includes the 'Java' keyword")
-    public void userAssertsResultIncludesJava() {
-        String keyword="Java";
+    @Then("user asserts that the result includes the java keyword")
+    public void user_asserts_that_the_result_includes_the_java_keyword() {
+        String keyword="java";
         String actualResultText= amazonPage.searchResultElement.getText();
         Assert.assertTrue(actualResultText.contains(keyword));
     }
-
-    @And("user makes a search for 'Apple' keyword")
-    public void userSearchesApple() {
-        amazonPage.searchBox.sendKeys("Apple" + Keys.ENTER);
+    @And("user makes a search for apple keyword")
+    public void user_makes_a_search_for_apple_keyword() {
+        amazonPage.searchBox.sendKeys("apple" + Keys.ENTER);
     }
 
-    @Then("user asserts that the result includes the 'Apple' keyword")
-    public void userAssertsResultIncludesApple() {
-        String keyword="Apple";
+    @Then("user asserts that the result includes the apple keyword")
+    public void user_asserts_that_the_result_includes_the_apple_keyword() {
+        String keyword="apple";
         String actualResultText= amazonPage.searchResultElement.getText();
         Assert.assertTrue(actualResultText.contains(keyword));
     }
-    @Given("user makes a search for {string}")
-    public void searchForUser(String istenenKelime) {
-        amazonPage.searchBox.sendKeys(istenenKelime + Keys.ENTER);
-
+    @And("user makes a search for {string}")
+    public void userMakesASearchFor(String keyword) {
+        amazonPage.searchBox.sendKeys(keyword + Keys.ENTER);
     }
-    @Given("user asserts that the result includes the {string} keyword")
-    public void AssertResultIncludes (String istenenKelime) {
-        String keyword=istenenKelime;
-        String actualResultText= amazonPage.searchResultElement.getText();
 
+    @And("user asserts that the result includes the {string}")
+    public void userAssertsThatTheResultIncludesThe(String keyword) {
+        String actualResultText= amazonPage.searchResultElement.getText();
         Assert.assertTrue(actualResultText.contains(keyword));
     }
-
-    @Given("kullanici {string} anasayfasinda") // amazonUrl
-    public void kullaniciAnasayfasinda(String istenenUrl) {
-
-        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
-
+    @Given("user goes to {string}")
+    public void user_goes_to(String url) {
+        Driver.getDriver().get(ConfigReader.getProperty(url));
     }
-
-    @And("url'in {string} icerdigini test eder")
-    public void urlInIcerdiginiTestEder(String istenenKelime) {
-        String actualUrl=Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actualUrl.contains(istenenKelime));
-    }
-
-    @Then("kullanici {int} sn bekler")
-    public void kullaniciSnBekler(int istenenSaniye) {
-
+    @Then("user waits for {int} seconds")
+    public void user_waits_for_seconds(Integer seconds) {
         try {
-            Thread.sleep(istenenSaniye*1000);
+            Thread.sleep(seconds*1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
+    @Then("user asserts that the URL includes the {string}")
+    public void user_asserts_that_the_url_includes_the(String keyword) {
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(keyword));
+    }
+
+
 }

@@ -1,24 +1,24 @@
-@tumu
-Feature: US1001 Kullanici Amazon Sayfasinda Arama Yapar
+@amazonSearchAll
+Feature: US1001 Amazon Search
 
-  @nutella @ikisi
-  Scenario: TC01 user makes a search for 'Laptop' on Amazon page
+  @laptop @laptopAndJava
+  Scenario: TC01 user makes a search for laptop on Amazon
 
-    Given user goes to Amazon home page
-    Then user makes a search for 'Laptop' keyword
-    And user asserts that the result includes the 'Laptop' keyword
+    Given user goes to amazon home page
+    Then user makes a search for laptop keyword
+    And user asserts that the result includes the laptop keyword
     And user closes the page
 
- @java @ikisi
-  Scenario: TC02 user makes a search for 'Java' on Amazon page
-    Given user goes to Amazon home page
-    Then user makes a search for 'Java' keyword
-    And user asserts that the result includes the 'Java' keyword
+ @java @laptopAndJava
+  Scenario: TC02 user makes a search for java on Amazon
+    Given user goes to amazon home page
+    Then user makes a search for java keyword
+    And user asserts that the result includes the java keyword
     And user closes the page
 
-  @iphone
-  Scenario: TC03 user makes a search for 'Apple' on Amazon page
-    When user goes to Amazon home page
-    And user makes a search for 'Apple' keyword
-    Then user asserts that the result includes the 'Apple' keyword
+  @apple
+  Scenario: TC03 user makes a search for apple on Amazon
+    When user goes to amazon home page
+    And user makes a search for apple keyword
+    Then user asserts that the result includes the apple keyword
     And user closes the page
