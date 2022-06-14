@@ -6,13 +6,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin={"html:target/cucumber-reports.html"},
+        plugin={"html:target/cucumber-reports2.html",
+                "json:target/json-reports/cucumber2.json",
+                "junit:target/xml-report/cucumber2.xml"
+        },
         features = "src/test/resources/features",
-        glue = "stepDefinitions",
-        tags = "@excel",
+        glue="stepDefinitions",
+        tags= "@pr2",
         dryRun = false
 )
 
-public class Runner {
+public class TestRunner2 {
 // JUnit framework is used because @RunWith(Cucumber.class) method that runs the runner class comes with JUnit framework.
 }
