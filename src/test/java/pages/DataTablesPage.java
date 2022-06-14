@@ -30,7 +30,6 @@ public class DataTablesPage {
     public WebElement createButton;
     @FindBy(xpath = "//input[@type='search']")
     public WebElement search;
-
     @FindBy(xpath = "//td[@class='sorting_1']")
     public WebElement searchResultFirstElement;
 }
