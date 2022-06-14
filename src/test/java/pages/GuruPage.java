@@ -14,10 +14,8 @@ public class GuruPage {
 
     @FindBy(xpath = "//*[text()='Accept All']")
     public WebElement acceptCookies;
-
     @FindBy(xpath = "//thead//tr//th")
     public List<WebElement> headersList;
-
     @FindBy(id="gdpr-consent-notice")
     public WebElement cookiesIframe;
 
